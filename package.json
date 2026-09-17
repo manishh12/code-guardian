@@ -1,0 +1,12 @@
+{
+  "name": "code-guardian-web",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Analytics dashboard for Code Guardian (Go API)",
+  "scripts": {
+    "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down"
+  }
+}

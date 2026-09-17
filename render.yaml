@@ -1,0 +1,24 @@
+# Render web service. PostgreSQL is provided by Supabase.
+# Add secret values in the Render dashboard after creating the service.
+
+services:
+  - type: web
+    name: code-guardian
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerCommand: "/bin/sh -c /app/seed && /app/server"
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-20b
+      - key: GITHUB_WEBHOOK_SECRET
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
